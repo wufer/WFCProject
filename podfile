@@ -1,0 +1,16 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'WFCProject' do
+
+pod 'YYCategories'
+
+  target 'WFCProjectTests' do
+
+  end
+
+  target 'WFCProjectUITests' do
+
+  end
+
+end
