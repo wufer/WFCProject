@@ -11,14 +11,16 @@
 		2C093F3BE7B4BD18039C7EDF /* libPods-WFCProject-WFCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C72644F1C2FADFF1BE6D28C6 /* libPods-WFCProject-WFCProjectTests.a */; };
 		887502797CA62E86265BA2DF /* libPods-WFCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4236A2131935F7352DC8FD /* libPods-WFCProject.a */; };
 		933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061A3204E7F0100FEB7C3 /* AppDelegate.m */; };
-		933061A7204E7F0100FEB7C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061A6204E7F0100FEB7C3 /* ViewController.m */; };
-		933061AA204E7F0100FEB7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933061A8204E7F0100FEB7C3 /* Main.storyboard */; };
 		933061AC204E7F0100FEB7C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933061AB204E7F0100FEB7C3 /* Assets.xcassets */; };
 		933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */; };
 		933061B2204E7F0100FEB7C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061B1204E7F0100FEB7C3 /* main.m */; };
 		933061BC204E7F0200FEB7C3 /* WFCProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061BB204E7F0200FEB7C3 /* WFCProjectTests.m */; };
 		933061C7204E7F0200FEB7C3 /* WFCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061C6204E7F0200FEB7C3 /* WFCProjectUITests.m */; };
 		935053E3204FDD5C002E2879 /* UIView+WFDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 935053E1204FDD5C002E2879 /* UIView+WFDraggable.m */; };
+		93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A98205235E000FC182A /* WF_BaseViewController.m */; };
+		93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9B2052360400FC182A /* WFDraggableDemoVc.m */; };
+		93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9E205255A400FC182A /* WF_BaseNavigationController.m */; };
+		93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610AA120525B2B00FC182A /* WFDemoListVc.m */; };
 		9FFA3B71C028A75B3A5F40D9 /* libPods-WFCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */; };
 		F0E6C758FCE7992E9FDE5FEC /* libPods-WFCProject-WFCProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */; };
 /* End PBXBuildFile section */
@@ -53,9 +55,6 @@
 		9330619F204E7F0100FEB7C3 /* WFCProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFCProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933061A2204E7F0100FEB7C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		933061A3204E7F0100FEB7C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		933061A5204E7F0100FEB7C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		933061A6204E7F0100FEB7C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		933061A9204E7F0100FEB7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		933061AB204E7F0100FEB7C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		933061AE204E7F0100FEB7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		933061B0204E7F0100FEB7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +67,14 @@
 		933061C8204E7F0200FEB7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935053E1204FDD5C002E2879 /* UIView+WFDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WFDraggable.m"; sourceTree = "<group>"; };
 		935053E2204FDD5C002E2879 /* UIView+WFDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WFDraggable.h"; sourceTree = "<group>"; };
+		93610A97205235E000FC182A /* WF_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BaseViewController.h; sourceTree = "<group>"; };
+		93610A98205235E000FC182A /* WF_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BaseViewController.m; sourceTree = "<group>"; };
+		93610A9A2052360400FC182A /* WFDraggableDemoVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFDraggableDemoVc.h; sourceTree = "<group>"; };
+		93610A9B2052360400FC182A /* WFDraggableDemoVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFDraggableDemoVc.m; sourceTree = "<group>"; };
+		93610A9D205255A400FC182A /* WF_BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BaseNavigationController.h; sourceTree = "<group>"; };
+		93610A9E205255A400FC182A /* WF_BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BaseNavigationController.m; sourceTree = "<group>"; };
+		93610AA020525B2B00FC182A /* WFDemoListVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFDemoListVc.h; sourceTree = "<group>"; };
+		93610AA120525B2B00FC182A /* WFDemoListVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFDemoListVc.m; sourceTree = "<group>"; };
 		AA5B1A20166B47878322C96F /* Pods-WFCProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectUITests/Pods-WFCProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B151A02D4EE672180FCA25DB /* Pods-WFCProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2688D3641DEBFFE843925EC /* Pods-WFCProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,9 +141,10 @@
 				933061D9204E8E0A00FEB7C3 /* WFDraggable */,
 				933061A2204E7F0100FEB7C3 /* AppDelegate.h */,
 				933061A3204E7F0100FEB7C3 /* AppDelegate.m */,
-				933061A5204E7F0100FEB7C3 /* ViewController.h */,
-				933061A6204E7F0100FEB7C3 /* ViewController.m */,
-				933061A8204E7F0100FEB7C3 /* Main.storyboard */,
+				93610AA020525B2B00FC182A /* WFDemoListVc.h */,
+				93610AA120525B2B00FC182A /* WFDemoListVc.m */,
+				93610A962052358100FC182A /* WF_Base */,
+				93610A912052350600FC182A /* Demo */,
 				933061AB204E7F0100FEB7C3 /* Assets.xcassets */,
 				933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */,
 				933061B0204E7F0100FEB7C3 /* Info.plist */,
@@ -170,6 +178,34 @@
 				935053E1204FDD5C002E2879 /* UIView+WFDraggable.m */,
 			);
 			path = WFDraggable;
+			sourceTree = "<group>";
+		};
+		93610A912052350600FC182A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				93610A922052350B00FC182A /* WFDraggabbleDemo */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		93610A922052350B00FC182A /* WFDraggabbleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				93610A9A2052360400FC182A /* WFDraggableDemoVc.h */,
+				93610A9B2052360400FC182A /* WFDraggableDemoVc.m */,
+			);
+			path = WFDraggabbleDemo;
+			sourceTree = "<group>";
+		};
+		93610A962052358100FC182A /* WF_Base */ = {
+			isa = PBXGroup;
+			children = (
+				93610A97205235E000FC182A /* WF_BaseViewController.h */,
+				93610A98205235E000FC182A /* WF_BaseViewController.m */,
+				93610A9D205255A400FC182A /* WF_BaseNavigationController.h */,
+				93610A9E205255A400FC182A /* WF_BaseNavigationController.m */,
+			);
+			path = WF_Base;
 			sourceTree = "<group>";
 		};
 		EB4181785A6602E0E6746DE3 /* Pods */ = {
@@ -318,7 +354,6 @@
 			files = (
 				933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */,
 				933061AC204E7F0100FEB7C3 /* Assets.xcassets in Resources */,
-				933061AA204E7F0100FEB7C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +516,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933061A7204E7F0100FEB7C3 /* ViewController.m in Sources */,
+				93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */,
+				93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */,
+				93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */,
 				935053E3204FDD5C002E2879 /* UIView+WFDraggable.m in Sources */,
+				93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
 				933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */,
 			);
@@ -520,14 +558,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		933061A8204E7F0100FEB7C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				933061A9204E7F0100FEB7C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

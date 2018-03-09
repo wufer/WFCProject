@@ -21,7 +21,7 @@
 
 @property (nonatomic,strong) UIAttachmentBehavior *WF_attachmentBehavior;
 
-@property (nonatomic,strong) UIPanGestureRecognizer *WF_recognizer;
+@property (nonatomic,strong) UIPanGestureRecognizer *WF_panGesture;
 
 @property (nonatomic,assign) CGPoint WF_centerPoint;
 
@@ -31,11 +31,12 @@
 
 @implementation UIView (WFDraggable)
 
-#define WF_DARAGGABLE_DAMPING 0.8
+#define WF_DARAGGABLE_DAMPING 0.8f
 
 -(void)WF_makeDraggable{
     if (!self.superview) {
         NSLog(@"WF_Draggable:   superView is nil！return.");
+        return;
     }
     [self WF_makeDraggableOnPlayground:self.superview damping:WF_DARAGGABLE_DAMPING];
 }
@@ -43,16 +44,16 @@
 -(void)WF_makeDraggableOnPlayground:(nonnull UIView *)Playground damping:(CGFloat)damping{
     if (!Playground) {
         NSLog(@"WF_Draggable:   Playground is nil！return.");
+        return;
     }
     [self WF_removeDraggable];
     
+     self.WF_playground = Playground;
     self.WF_damping = damping;
-    self.WF_playground = Playground;
     
     [self createAnimator];
     [self addPanGesture];
-    
-    
+
 }
 
 -(void)WF_updateSnapPoint{
@@ -62,18 +63,18 @@
 }
 
 -(void)WF_removeDraggable{
-    [self removeGestureRecognizer:self.WF_recognizer];
+    [self removeGestureRecognizer:self.WF_panGesture];
+    self.WF_panGesture = nil;
     self.WF_playground = nil;
     self.WF_animator = nil;
     self.WF_snapBehavior = nil;
     self.WF_attachmentBehavior = nil;
-    self.WF_recognizer = nil;
     self.WF_centerPoint = CGPointZero;
 }
 
 -(void)addPanGesture{
-    self.WF_recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGesture:)];
-    [self addGestureRecognizer:self.WF_recognizer];
+    self.WF_panGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGesture:)];
+    [self addGestureRecognizer:self.WF_panGesture];
 }
 
 -(void)createAnimator{
@@ -140,16 +141,16 @@
    return  objc_getAssociatedObject(self, @selector(WF_attachmentBehavior));
 }
 
--(void)setWF_recognizer:(UIPanGestureRecognizer *)WF_recognizer{
-    objc_setAssociatedObject(self, @selector(WF_snapBehavior), WF_recognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void)setWF_panGesture:(UIPanGestureRecognizer *)WF_panGesture{
+    objc_setAssociatedObject(self, @selector(WF_panGesture),WF_panGesture, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(UIPanGestureRecognizer *)WF_recognizer{
-    return objc_getAssociatedObject(self, @selector(WF_recognizer));
+-(UIPanGestureRecognizer *)WF_panGesture{
+    return objc_getAssociatedObject(self, @selector(WF_panGesture));
 }
 
 -(void)setWF_centerPoint:(CGPoint)WF_centerPoint{
-    objc_setAssociatedObject(self, @selector(WF_centerPoint), [NSValue valueWithCGPoint:WF_centerPoint], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(WF_centerPoint), [NSValue valueWithCGPoint:WF_centerPoint], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(CGPoint)WF_centerPoint{
@@ -157,7 +158,7 @@
 }
 
 -(void)setWF_damping:(CGFloat)WF_damping{
-    objc_setAssociatedObject(self, @selector(WF_damping), [NSNumber numberWithFloat:WF_damping], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(WF_damping),@(WF_damping), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(CGFloat)WF_damping{
