@@ -1,14 +1,17 @@
 PODS:
+  - BaiduMapKit (3.4.4)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
+  - BaiduMapKit
   - YYCategories
 
 SPEC CHECKSUMS:
+  BaiduMapKit: 4ac88f5a363500760392825b69709f4a0125f81e
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 6879bbd69d98d48db71bd3e49b957387edc1e0ca
+PODFILE CHECKSUM: f2730f2f21129232b18a7fbc23b1761ced8a1066
 
 COCOAPODS: 1.2.0

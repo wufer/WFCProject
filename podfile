@@ -4,7 +4,7 @@
 target 'WFCProject' do
 
 pod 'YYCategories'
-
+pod 'BaiduMapKit'
   target 'WFCProjectTests' do
 
   end
