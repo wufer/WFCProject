@@ -93,14 +93,12 @@
                 BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([firModel.lat floatValue], [firModel.lon floatValue]));
                 BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([secModel.lat floatValue],[secModel.lon floatValue]));
                 CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
-                if (distance<100) {
-                    NSLog(@"%d&%d:符合标准间距    间距：%f",i,i-1,distance);
+                if (distance<500) {
                     [tempRouteArr addObject:secModel];
-                    if (i == (routeArr.count-1) && !overlayArr.count){
+                    if (i == (routeArr.count-1) && !overlayArr.count){//全部符合规范加入数组处理
                         [overlayArr addObject:tempRouteArr.mutableCopy];
                     }
                 }else{
-                    NSLog(@"%d&%d:不符合标准间距    间距：%f",i,i-1,distance);
                     [overlayArr addObject:tempRouteArr.mutableCopy];
                     [tempRouteArr removeAllObjects];
                 }

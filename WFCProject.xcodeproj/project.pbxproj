@@ -16,11 +16,12 @@
 		933061BC204E7F0200FEB7C3 /* WFCProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061BB204E7F0200FEB7C3 /* WFCProjectTests.m */; };
 		933061C7204E7F0200FEB7C3 /* WFCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061C6204E7F0200FEB7C3 /* WFCProjectUITests.m */; };
 		93585C38205B5E0800861329 /* point.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93585C37205B5E0800861329 /* point.plist */; };
-		93585C3A205BCB7C00861329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93585C39205BCB7B00861329 /* Assets.xcassets */; };
 		93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A98205235E000FC182A /* WF_BaseViewController.m */; };
 		93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9B2052360400FC182A /* WFDraggableDemoVc.m */; };
 		93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9E205255A400FC182A /* WF_BaseNavigationController.m */; };
 		93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610AA120525B2B00FC182A /* WFDemoListVc.m */; };
+		93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FC1205F515F005A42CC /* Assets.xcassets */; };
+		93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */; };
 		93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D6F205A0E8C007CFEE7 /* UIView+WFDraggable.m */; };
 		93D05D79205A1F6F007CFEE7 /* WFBMK_TrailVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D78205A1F6F007CFEE7 /* WFBMK_TrailVc.m */; };
 		93D05D80205A5EEF007CFEE7 /* WFBMK_LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D7F205A5EEF007CFEE7 /* WFBMK_LocationModel.m */; };
@@ -68,7 +69,6 @@
 		933061C6204E7F0200FEB7C3 /* WFCProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFCProjectUITests.m; sourceTree = "<group>"; };
 		933061C8204E7F0200FEB7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93585C37205B5E0800861329 /* point.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = point.plist; sourceTree = "<group>"; };
-		93585C39205BCB7B00861329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93610A97205235E000FC182A /* WF_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BaseViewController.h; sourceTree = "<group>"; };
 		93610A98205235E000FC182A /* WF_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BaseViewController.m; sourceTree = "<group>"; };
 		93610A9A2052360400FC182A /* WFDraggableDemoVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFDraggableDemoVc.h; sourceTree = "<group>"; };
@@ -77,6 +77,9 @@
 		93610A9E205255A400FC182A /* WF_BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BaseNavigationController.m; sourceTree = "<group>"; };
 		93610AA020525B2B00FC182A /* WFDemoListVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFDemoListVc.h; sourceTree = "<group>"; };
 		93610AA120525B2B00FC182A /* WFDemoListVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFDemoListVc.m; sourceTree = "<group>"; };
+		93C14FC1205F515F005A42CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93C14FC4205F5946005A42CC /* WFBackgroundTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBackgroundTaskManager.h; sourceTree = "<group>"; };
+		93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBackgroundTaskManager.m; sourceTree = "<group>"; };
 		93D05D6C205A0CF2007CFEE7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		93D05D6F205A0E8C007CFEE7 /* UIView+WFDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WFDraggable.m"; sourceTree = "<group>"; };
 		93D05D70205A0E8C007CFEE7 /* UIView+WFDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WFDraggable.h"; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 				933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */,
 				933061B0204E7F0100FEB7C3 /* Info.plist */,
 				933061B1204E7F0100FEB7C3 /* main.m */,
+				93C14FC1205F515F005A42CC /* Assets.xcassets */,
 			);
 			path = WFCProject;
 			sourceTree = "<group>";
@@ -170,7 +174,6 @@
 			children = (
 				933061BB204E7F0200FEB7C3 /* WFCProjectTests.m */,
 				933061BD204E7F0200FEB7C3 /* Info.plist */,
-				93585C39205BCB7B00861329 /* Assets.xcassets */,
 			);
 			path = WFCProjectTests;
 			sourceTree = "<group>";
@@ -212,6 +215,15 @@
 			path = WF_Base;
 			sourceTree = "<group>";
 		};
+		93C14FC3205F591C005A42CC /* WFBackgroundTask */ = {
+			isa = PBXGroup;
+			children = (
+				93C14FC4205F5946005A42CC /* WFBackgroundTaskManager.h */,
+				93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */,
+			);
+			path = WFBackgroundTask;
+			sourceTree = "<group>";
+		};
 		93D05D6D205A0E8C007CFEE7 /* WFCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 		93D05D73205A1D3C007CFEE7 /* WF_BMK_Trail */ = {
 			isa = PBXGroup;
 			children = (
+				93C14FC3205F591C005A42CC /* WFBackgroundTask */,
 				93D05D7D205A5EAF007CFEE7 /* Model */,
 				93D05D77205A1F6F007CFEE7 /* WFBMK_TrailVc.h */,
 				93D05D78205A1F6F007CFEE7 /* WFBMK_TrailVc.m */,
@@ -407,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */,
+				93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */,
 				93585C38205B5E0800861329 /* point.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +429,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93585C3A205BCB7C00861329 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +591,7 @@
 				93D05D80205A5EEF007CFEE7 /* WFBMK_LocationModel.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
 				93D05D79205A1F6F007CFEE7 /* WFBMK_TrailVc.m in Sources */,
+				93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */,
 				933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */,
 				93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */,
 			);
@@ -674,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -723,7 +737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
