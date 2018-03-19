@@ -8,6 +8,7 @@
 
 #import "WFDemoListVc.h"
 #import "WFDraggableDemoVc.h"
+#import "WFBMK_TrailVc.h"
 
 @interface WFDemoListVc ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"List";
     [self.datascorceArr addObject:@"WFDraggableDemoVc"];
+    [self.datascorceArr addObject:@"WFBMK_TrailVc"];
     [self.view addSubview:self.tableV];
 }
 
@@ -47,7 +49,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
  WF_BaseViewController *vc = [[NSClassFromString(self.datascorceArr[indexPath.row]) alloc] init];
-    vc.title = self.datascorceArr[indexPath.row];
+    vc.title = [NSString stringWithFormat:@"【%ld】%@",indexPath.row,self.datascorceArr[indexPath.row]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark tableDatasource
@@ -62,8 +64,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.text = self.datascorceArr[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"【%ld】%@",indexPath.row,self.datascorceArr[indexPath.row]];
     return cell;
 }
 
