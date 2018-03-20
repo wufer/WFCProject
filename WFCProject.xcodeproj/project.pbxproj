@@ -15,16 +15,19 @@
 		933061B2204E7F0100FEB7C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061B1204E7F0100FEB7C3 /* main.m */; };
 		933061BC204E7F0200FEB7C3 /* WFCProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061BB204E7F0200FEB7C3 /* WFCProjectTests.m */; };
 		933061C7204E7F0200FEB7C3 /* WFCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061C6204E7F0200FEB7C3 /* WFCProjectUITests.m */; };
-		93585C38205B5E0800861329 /* point.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93585C37205B5E0800861329 /* point.plist */; };
 		93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A98205235E000FC182A /* WF_BaseViewController.m */; };
 		93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9B2052360400FC182A /* WFDraggableDemoVc.m */; };
 		93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610A9E205255A400FC182A /* WF_BaseNavigationController.m */; };
 		93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610AA120525B2B00FC182A /* WFDemoListVc.m */; };
 		93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FC1205F515F005A42CC /* Assets.xcassets */; };
 		93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */; };
+		93C14FCA205F8928005A42CC /* WF_BMK_LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */; };
+		93C14FD1205FBA49005A42CC /* YZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FCD205FBA49005A42CC /* YZLocationManager.m */; };
+		93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */; };
+		93C14FDA2060EDC7005A42CC /* point.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FD42060EDC6005A42CC /* point.plist */; };
+		93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD62060EDC6005A42CC /* LocationModel.m */; };
+		93C14FDC2060EDC7005A42CC /* WFBMKTrailVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD82060EDC7005A42CC /* WFBMKTrailVc.m */; };
 		93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D6F205A0E8C007CFEE7 /* UIView+WFDraggable.m */; };
-		93D05D79205A1F6F007CFEE7 /* WFBMK_TrailVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D78205A1F6F007CFEE7 /* WFBMK_TrailVc.m */; };
-		93D05D80205A5EEF007CFEE7 /* WFBMK_LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D7F205A5EEF007CFEE7 /* WFBMK_LocationModel.m */; };
 		9FFA3B71C028A75B3A5F40D9 /* libPods-WFCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */; };
 		F0E6C758FCE7992E9FDE5FEC /* libPods-WFCProject-WFCProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */; };
 /* End PBXBuildFile section */
@@ -68,7 +71,6 @@
 		933061C2204E7F0200FEB7C3 /* WFCProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WFCProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933061C6204E7F0200FEB7C3 /* WFCProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFCProjectUITests.m; sourceTree = "<group>"; };
 		933061C8204E7F0200FEB7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93585C37205B5E0800861329 /* point.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = point.plist; sourceTree = "<group>"; };
 		93610A97205235E000FC182A /* WF_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BaseViewController.h; sourceTree = "<group>"; };
 		93610A98205235E000FC182A /* WF_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BaseViewController.m; sourceTree = "<group>"; };
 		93610A9A2052360400FC182A /* WFDraggableDemoVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFDraggableDemoVc.h; sourceTree = "<group>"; };
@@ -80,14 +82,23 @@
 		93C14FC1205F515F005A42CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C14FC4205F5946005A42CC /* WFBackgroundTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBackgroundTaskManager.h; sourceTree = "<group>"; };
 		93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBackgroundTaskManager.m; sourceTree = "<group>"; };
+		93C14FC8205F8928005A42CC /* WF_BMK_LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BMK_LocationManager.h; sourceTree = "<group>"; };
+		93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BMK_LocationManager.m; sourceTree = "<group>"; };
+		93C14FCC205FBA49005A42CC /* YZBackgroundTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBackgroundTaskManager.h; sourceTree = "<group>"; };
+		93C14FCD205FBA49005A42CC /* YZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLocationManager.m; sourceTree = "<group>"; };
+		93C14FCE205FBA49005A42CC /* YZLocationManagerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLocationManagerMacro.h; sourceTree = "<group>"; };
+		93C14FCF205FBA49005A42CC /* YZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLocationManager.h; sourceTree = "<group>"; };
+		93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBackgroundTaskManager.m; sourceTree = "<group>"; };
+		93C14FD42060EDC6005A42CC /* point.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = point.plist; sourceTree = "<group>"; };
+		93C14FD62060EDC6005A42CC /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
+		93C14FD72060EDC6005A42CC /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		93C14FD82060EDC7005A42CC /* WFBMKTrailVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBMKTrailVc.m; sourceTree = "<group>"; };
+		93C14FD92060EDC7005A42CC /* WFBMKTrailVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBMKTrailVc.h; sourceTree = "<group>"; };
+		93C14FDE2060EE71005A42CC /* WF_BMK_LocationHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BMK_LocationHelp.h; sourceTree = "<group>"; };
 		93D05D6C205A0CF2007CFEE7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		93D05D6F205A0E8C007CFEE7 /* UIView+WFDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WFDraggable.m"; sourceTree = "<group>"; };
 		93D05D70205A0E8C007CFEE7 /* UIView+WFDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WFDraggable.h"; sourceTree = "<group>"; };
-		93D05D77205A1F6F007CFEE7 /* WFBMK_TrailVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBMK_TrailVc.h; sourceTree = "<group>"; };
-		93D05D78205A1F6F007CFEE7 /* WFBMK_TrailVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBMK_TrailVc.m; sourceTree = "<group>"; };
 		93D05D7A205A4A3C007CFEE7 /* WFCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFCHeader.h; sourceTree = "<group>"; };
-		93D05D7E205A5EEF007CFEE7 /* WFBMK_LocationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBMK_LocationModel.h; sourceTree = "<group>"; };
-		93D05D7F205A5EEF007CFEE7 /* WFBMK_LocationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBMK_LocationModel.m; sourceTree = "<group>"; };
 		AA5B1A20166B47878322C96F /* Pods-WFCProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectUITests/Pods-WFCProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B151A02D4EE672180FCA25DB /* Pods-WFCProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2688D3641DEBFFE843925EC /* Pods-WFCProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +201,7 @@
 		93610A912052350600FC182A /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				93C14FD32060ED76005A42CC /* WFBMKLocationDemo */,
 				93610A922052350B00FC182A /* WFDraggabbleDemo */,
 			);
 			path = Demo;
@@ -215,13 +227,55 @@
 			path = WF_Base;
 			sourceTree = "<group>";
 		};
-		93C14FC3205F591C005A42CC /* WFBackgroundTask */ = {
+		93C14FC3205F591C005A42CC /* WFBackgroundTaskManager */ = {
 			isa = PBXGroup;
 			children = (
 				93C14FC4205F5946005A42CC /* WFBackgroundTaskManager.h */,
 				93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */,
 			);
-			path = WFBackgroundTask;
+			path = WFBackgroundTaskManager;
+			sourceTree = "<group>";
+		};
+		93C14FC7205F887D005A42CC /* WF_BMK_LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				93C14FC8205F8928005A42CC /* WF_BMK_LocationManager.h */,
+				93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */,
+			);
+			path = WF_BMK_LocationManager;
+			sourceTree = "<group>";
+		};
+		93C14FCB205FBA49005A42CC /* YZLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				93C14FCC205FBA49005A42CC /* YZBackgroundTaskManager.h */,
+				93C14FCD205FBA49005A42CC /* YZLocationManager.m */,
+				93C14FCE205FBA49005A42CC /* YZLocationManagerMacro.h */,
+				93C14FCF205FBA49005A42CC /* YZLocationManager.h */,
+				93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */,
+			);
+			name = YZLocationManager;
+			path = WFCProject/YZLocationManager;
+			sourceTree = SOURCE_ROOT;
+		};
+		93C14FD32060ED76005A42CC /* WFBMKLocationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				93C14FD52060EDC6005A42CC /* Model */,
+				93C14FD42060EDC6005A42CC /* point.plist */,
+				93C14FD92060EDC7005A42CC /* WFBMKTrailVc.h */,
+				93C14FD82060EDC7005A42CC /* WFBMKTrailVc.m */,
+			);
+			path = WFBMKLocationDemo;
+			sourceTree = "<group>";
+		};
+		93C14FD52060EDC6005A42CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93C14FD62060EDC6005A42CC /* LocationModel.m */,
+				93C14FD72060EDC6005A42CC /* LocationModel.h */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		93D05D6D205A0E8C007CFEE7 /* WFCategory */ = {
@@ -244,30 +298,20 @@
 		93D05D72205A1D3C007CFEE7 /* WFThiredHelp */ = {
 			isa = PBXGroup;
 			children = (
-				93D05D73205A1D3C007CFEE7 /* WF_BMK_Trail */,
+				93C14FCB205FBA49005A42CC /* YZLocationManager */,
+				93D05D73205A1D3C007CFEE7 /* WF_BMK_LocationHelp */,
 			);
 			path = WFThiredHelp;
 			sourceTree = "<group>";
 		};
-		93D05D73205A1D3C007CFEE7 /* WF_BMK_Trail */ = {
+		93D05D73205A1D3C007CFEE7 /* WF_BMK_LocationHelp */ = {
 			isa = PBXGroup;
 			children = (
-				93C14FC3205F591C005A42CC /* WFBackgroundTask */,
-				93D05D7D205A5EAF007CFEE7 /* Model */,
-				93D05D77205A1F6F007CFEE7 /* WFBMK_TrailVc.h */,
-				93D05D78205A1F6F007CFEE7 /* WFBMK_TrailVc.m */,
-				93585C37205B5E0800861329 /* point.plist */,
+				93C14FDE2060EE71005A42CC /* WF_BMK_LocationHelp.h */,
+				93C14FC7205F887D005A42CC /* WF_BMK_LocationManager */,
+				93C14FC3205F591C005A42CC /* WFBackgroundTaskManager */,
 			);
-			path = WF_BMK_Trail;
-			sourceTree = "<group>";
-		};
-		93D05D7D205A5EAF007CFEE7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				93D05D7E205A5EEF007CFEE7 /* WFBMK_LocationModel.h */,
-				93D05D7F205A5EEF007CFEE7 /* WFBMK_LocationModel.m */,
-			);
-			path = Model;
+			path = WF_BMK_LocationHelp;
 			sourceTree = "<group>";
 		};
 		EB4181785A6602E0E6746DE3 /* Pods */ = {
@@ -421,7 +465,7 @@
 			files = (
 				933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */,
 				93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */,
-				93585C38205B5E0800861329 /* point.plist in Resources */,
+				93C14FDA2060EDC7005A42CC /* point.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,13 +629,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */,
+				93C14FD1205FBA49005A42CC /* YZLocationManager.m in Sources */,
 				93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */,
 				93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */,
 				93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */,
-				93D05D80205A5EEF007CFEE7 /* WFBMK_LocationModel.m in Sources */,
+				93C14FCA205F8928005A42CC /* WF_BMK_LocationManager.m in Sources */,
+				93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
-				93D05D79205A1F6F007CFEE7 /* WFBMK_TrailVc.m in Sources */,
+				93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */,
 				93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */,
+				93C14FDC2060EDC7005A42CC /* WFBMKTrailVc.m in Sources */,
 				933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */,
 				93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */,
 			);

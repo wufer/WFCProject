@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WFBMK_LocationModel : NSObject
+@interface LocationModel : NSObject
 
 /**
  经度

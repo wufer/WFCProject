@@ -25,6 +25,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc{
+    NSLog(@"%@ dealloc",[self class]);
+}
+
 /*
 #pragma mark - Navigation
 

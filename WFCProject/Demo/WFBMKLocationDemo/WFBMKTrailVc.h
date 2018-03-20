@@ -8,6 +8,6 @@
 
 #import "WF_BaseViewController.h"
 
-@interface WFBMK_TrailVc : WF_BaseViewController
+@interface WFBMKTrailVc : WF_BaseViewController
 
 @end

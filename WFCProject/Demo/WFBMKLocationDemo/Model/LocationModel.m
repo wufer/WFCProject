@@ -6,9 +6,9 @@
 //  Copyright © 2018年 wufer. All rights reserved.
 //
 
-#import "WFBMK_LocationModel.h"
+#import "LocationModel.h"
 
-@implementation WFBMK_LocationModel
+@implementation LocationModel
 
 -(void)setValue:(id)value forUndefinedKey:(nonnull NSString *)key{
     

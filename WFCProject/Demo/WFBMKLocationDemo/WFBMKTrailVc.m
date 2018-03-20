@@ -6,18 +6,19 @@
 //  Copyright © 2018年 wufer. All rights reserved.
 //
 
-#import "WFBMK_TrailVc.h"
+#import "WFBMKTrailVc.h"
 
-#import "WFBMK_LocationModel.h"
+#import "LocationModel.h"
+#import "WF_BMK_LocationHelp.h"
+//#import "YZLocationManager.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//基础地图
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>//定位
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//百度地图计算方法API
 
 #import <YYCategories.h>
 
-@interface WFBMK_TrailVc ()<BMKMapViewDelegate,BMKLocationServiceDelegate>
+@interface WFBMKTrailVc ()<BMKMapViewDelegate>
 
 /**
  模拟数据源
@@ -27,14 +28,11 @@
  地图展示
  */
 @property (nonatomic,strong) BMKMapView *mapView;
-/**
- 定位服务
- */
-@property (nonatomic,strong) BMKLocationService *locationService;
+
 
 @end
-
-@implementation WFBMK_TrailVc
+static CLLocationManager *clLocationManager;
+@implementation WFBMKTrailVc
 //BMK地图显隐需控制代理
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -56,9 +54,15 @@
     coordinate.latitude = 23.22504044;
     coordinate.longitude = 113.4938237;
     [_mapView setCenterCoordinate:coordinate];
-    [self.locationService startUserLocationService];
-    
+    [WF_BMK_LocationManager sharedLocationManager].isAlwaysLocation = YES;
+    [WF_BMK_LocationManager sharedLocationManager].locationInterval = 5.0f;
+       [[WF_BMK_LocationManager sharedLocationManager]startLocationService];
+  
+  
+
+   
 }
+
 #pragma mark createUI
 -(void)addMapView{
     _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, KNAVHIGH, KSCREENWIDTH,KSCREENHEIGHT-KNAVHIGH)];
@@ -88,8 +92,8 @@
             [tempRouteArr addObject:routeArr.firstObject];
             NSMutableArray <NSMutableArray *>*overlayArr = [[NSMutableArray alloc]init];
             for (int i = 1; i<routeArr.count; i++) {
-                WFBMK_LocationModel *firModel = routeArr[i];
-                WFBMK_LocationModel *secModel = routeArr[i-1];
+                LocationModel *firModel = routeArr[i];
+                LocationModel *secModel = routeArr[i-1];
                 BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([firModel.lat floatValue], [firModel.lon floatValue]));
                 BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake([secModel.lat floatValue],[secModel.lon floatValue]));
                 CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
@@ -108,7 +112,7 @@
                 const int  Max  = (int)obj.count;
                 CLLocationCoordinate2D *coors = malloc(Max *sizeof(CLLocationCoordinate2D));
                 for (int i = 0; i<Max; i++) {
-                    WFBMK_LocationModel *model = obj[i];
+                    LocationModel *model = obj[i];
                     coors[i].latitude =[model.lat floatValue];
                     coors[i].longitude = [model.lon floatValue];
                 }
@@ -174,7 +178,7 @@
         NSDictionary *localDict = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
         NSMutableArray *pointArr = [[NSMutableArray alloc]init];
         for (NSDictionary *dict in [localDict objectForKey:@"location"]) {
-            WFBMK_LocationModel *model = [[WFBMK_LocationModel alloc]init];
+            LocationModel *model = [[LocationModel alloc]init];
             [model setValuesForKeysWithDictionary:dict];
             [pointArr addObject:model];
         }
@@ -185,25 +189,25 @@
     }
     return _dataDict;
 }
--(BMKLocationService *)locationService{
-    if (!_locationService) {
-        //初始化实例
-        _locationService = [[BMKLocationService alloc] init];
-        //设置delegate
-        _locationService.delegate = self;
-        //设置定位服务是否会被系统暂停
-        _locationService.pausesLocationUpdatesAutomatically = NO;
-        //设置距离过滤参数
-        _locationService.distanceFilter = kCLDistanceFilterNone;
-        //设置预期精度参数
-        _locationService.desiredAccuracy = kCLLocationAccuracyBest;
-        //设置是否自动停止位置更新
-        _locationService.pausesLocationUpdatesAutomatically = NO;
-        //设置是否允许后台定位
-        _locationService.allowsBackgroundLocationUpdates = YES;
-    }
-    return _locationService;
-}
+//-(BMKLocationService *)locationService{
+//    if (!_locationService) {
+//        //初始化实例
+//        _locationService = [[BMKLocationService alloc] init];
+//        //设置delegate
+//        _locationService.delegate = self;
+//        //设置定位服务是否会被系统暂停
+//        _locationService.pausesLocationUpdatesAutomatically = NO;
+//        //设置距离过滤参数
+//        _locationService.distanceFilter = kCLDistanceFilterNone;
+//        //设置预期精度参数
+//        _locationService.desiredAccuracy = kCLLocationAccuracyBest;
+//        //设置是否自动停止位置更新
+//        _locationService.pausesLocationUpdatesAutomatically = NO;
+//        //设置是否允许后台定位
+//        _locationService.allowsBackgroundLocationUpdates = YES;
+//    }
+//    return _locationService;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

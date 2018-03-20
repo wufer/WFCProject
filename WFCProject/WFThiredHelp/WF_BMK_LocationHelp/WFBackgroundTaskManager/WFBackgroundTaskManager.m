@@ -49,7 +49,7 @@
         self.masterTaskID = BGTaskID;
         NSLog(@"开始主任务   %lu",(unsigned long)BGTaskID);
     }else{
-        NSLog(@"%lu",(unsigned long)BGTaskID);
+        NSLog(@"启动后台任务 %lu",(unsigned long)BGTaskID);
         [self.BGTaskIDList addObject:@(BGTaskID)];
         [self endAllBackgroundTasks];
     }
@@ -81,7 +81,7 @@
             [application endBackgroundTask:self.masterTaskID];
             self.masterTaskID = UIBackgroundTaskInvalid;
         }else{
-            NSLog(@"保持朱后台任务     ID  %lu",(unsigned long)self.masterTaskID);
+            NSLog(@"保持主后台任务     ID  %lu",(unsigned long)self.masterTaskID);
         }
     }
 }

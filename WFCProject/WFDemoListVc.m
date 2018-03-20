@@ -8,7 +8,7 @@
 
 #import "WFDemoListVc.h"
 #import "WFDraggableDemoVc.h"
-#import "WFBMK_TrailVc.h"
+#import "WFBMKTrailVc.h"
 
 @interface WFDemoListVc ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"List";
     [self.datascorceArr addObject:@"WFDraggableDemoVc"];
-    [self.datascorceArr addObject:@"WFBMK_TrailVc"];
+    [self.datascorceArr addObject:@"WFBMKTrailVc"];
     [self.view addSubview:self.tableV];
 }
 
