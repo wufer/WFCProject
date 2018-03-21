@@ -10,7 +10,7 @@
 
 #import "LocationModel.h"
 #import "WF_BMK_LocationHelp.h"
-//#import "YZLocationManager.h"
+#import "YZLocationManager.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//基础地图
@@ -18,7 +18,7 @@
 
 #import <YYCategories.h>
 
-@interface WFBMKTrailVc ()<BMKMapViewDelegate>
+@interface WFBMKTrailVc ()<BMKMapViewDelegate,WF_BMK_LocationManagerDelegate>
 
 /**
  模拟数据源
@@ -38,11 +38,13 @@ static CLLocationManager *clLocationManager;
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
     _mapView.delegate = self;
+    [WF_BMK_LocationManager sharedLocationManager].delegate = self;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil;
+    [WF_BMK_LocationManager sharedLocationManager].delegate = nil;
 }
 
 - (void)viewDidLoad {
@@ -54,13 +56,25 @@ static CLLocationManager *clLocationManager;
     coordinate.latitude = 23.22504044;
     coordinate.longitude = 113.4938237;
     [_mapView setCenterCoordinate:coordinate];
-    [WF_BMK_LocationManager sharedLocationManager].isAlwaysLocation = YES;
     [WF_BMK_LocationManager sharedLocationManager].locationInterval = 5.0f;
-       [[WF_BMK_LocationManager sharedLocationManager]startLocationService];
-  
-  
+    [[WF_BMK_LocationManager sharedLocationManager] backGCoordinate:^(CLLocationCoordinate2D coordinate, NSError *error) {
+        NSLog(@"后台经纬度");
+    }];
+    [[WF_BMK_LocationManager sharedLocationManager] activeCoordinate:^(CLLocationCoordinate2D coordinate, NSError *error) {
+        NSLog(@"前台经纬度");
+    }];
+      [[WF_BMK_LocationManager sharedLocationManager]startLocationService];
+//    YZLocationManager *manager = [YZLocationManager sharedLocationManager];
+//    manager.isBackGroundLocation = YES;
+//    manager.locationInterval = 10;
+//    [manager startLocationService];
+}
+-(void)activeCoordinate:(CLLocationCoordinate2D)coordinate{
+    NSLog(@"前台代理定位");
+}
 
-   
+-(void)backGCoordinate:(CLLocationCoordinate2D)coordinate{
+    NSLog(@"后台代理定位");
 }
 
 #pragma mark createUI

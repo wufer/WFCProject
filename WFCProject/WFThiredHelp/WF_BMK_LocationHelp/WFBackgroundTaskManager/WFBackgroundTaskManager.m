@@ -69,9 +69,9 @@
         NSUInteger count = self.BGTaskIDList.count;
         for (NSUInteger i = (isAll?0:1); i<count; i++) {
             UIBackgroundTaskIdentifier BGTaskID = [[self.BGTaskIDList objectAtIndex:0] integerValue];
+            NSLog(@"正在结束后台任务    ID  %lu",(unsigned long)BGTaskID);
             [application endBackgroundTask:BGTaskID];
             [self.BGTaskIDList removeObjectAtIndex:0];
-            NSLog(@"正在结束后台任务    ID  %lu",(unsigned long)BGTaskID);
         }
         if (self.BGTaskIDList.count>0) {
             NSLog(@"持续后台任务      ID  %@",[self.BGTaskIDList objectAtIndex:0]);
