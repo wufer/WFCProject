@@ -2,15 +2,8 @@
 # platform :ios, '9.0'
 
 target 'WFCProject' do
-
 pod 'YYCategories'
 pod 'BaiduMapKit'
-  target 'WFCProjectTests' do
-
-  end
-
-  target 'WFCProjectUITests' do
-
-  end
-
+#use_frameworks!
+#pod 'ReactiveCocoa'
 end

@@ -9,6 +9,6 @@
 #ifndef WF_BMK_LocationHelp_h
 #define WF_BMK_LocationHelp_h
 
-#import "WF_BMK_LocationManager.h"
+#import "WFBMKLocationManager.h"
 
 #endif /* WF_BMK_LocationHelp_h */

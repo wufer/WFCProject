@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BC0F705B9B7024BF6784B7A /* libPods-WFCProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E67614DE397DD6BFEBA553DA /* libPods-WFCProjectUITests.a */; };
-		2C093F3BE7B4BD18039C7EDF /* libPods-WFCProject-WFCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C72644F1C2FADFF1BE6D28C6 /* libPods-WFCProject-WFCProjectTests.a */; };
-		887502797CA62E86265BA2DF /* libPods-WFCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4236A2131935F7352DC8FD /* libPods-WFCProject.a */; };
+		37BAD6313D9F5D398BA3DFBE /* libPods-WFCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 329840AF234BC8F71B6B72ED /* libPods-WFCProject.a */; };
 		933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061A3204E7F0100FEB7C3 /* AppDelegate.m */; };
 		933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */; };
 		933061B2204E7F0100FEB7C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061B1204E7F0100FEB7C3 /* main.m */; };
@@ -21,15 +19,13 @@
 		93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93610AA120525B2B00FC182A /* WFDemoListVc.m */; };
 		93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FC1205F515F005A42CC /* Assets.xcassets */; };
 		93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */; };
-		93C14FCA205F8928005A42CC /* WF_BMK_LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */; };
+		93C14FCA205F8928005A42CC /* WFBMKLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC9205F8928005A42CC /* WFBMKLocationManager.m */; };
 		93C14FD1205FBA49005A42CC /* YZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FCD205FBA49005A42CC /* YZLocationManager.m */; };
 		93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */; };
 		93C14FDA2060EDC7005A42CC /* point.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FD42060EDC6005A42CC /* point.plist */; };
 		93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD62060EDC6005A42CC /* LocationModel.m */; };
 		93C14FDC2060EDC7005A42CC /* WFBMKTrailVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD82060EDC7005A42CC /* WFBMKTrailVc.m */; };
 		93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D05D6F205A0E8C007CFEE7 /* UIView+WFDraggable.m */; };
-		9FFA3B71C028A75B3A5F40D9 /* libPods-WFCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */; };
-		F0E6C758FCE7992E9FDE5FEC /* libPods-WFCProject-WFCProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,15 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1608ACA2D794D44BF90EB00F /* Pods-WFCProject-WFCProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject-WFCProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject-WFCProjectUITests/Pods-WFCProject-WFCProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject-WFCProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		289808690E0C22003219ADE8 /* Pods-WFCProject-WFCProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject-WFCProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject-WFCProjectUITests/Pods-WFCProject-WFCProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		329840AF234BC8F71B6B72ED /* libPods-WFCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DF323623C64091E262B4D5 /* Pods-WFCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject/Pods-WFCProject.release.xcconfig"; sourceTree = "<group>"; };
 		55844131171B292F7AEF906D /* Pods-WFCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject/Pods-WFCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5E0C17881D4567505044377F /* Pods-WFCProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectUITests/Pods-WFCProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6CD164178662B04DDCC0AE7D /* Pods-WFCProject-WFCProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject-WFCProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject-WFCProjectTests/Pods-WFCProject-WFCProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		839BEC6F9A86DE2F5BBF3AFF /* Pods-WFCProject-WFCProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject-WFCProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject-WFCProjectTests/Pods-WFCProject-WFCProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9330619F204E7F0100FEB7C3 /* WFCProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFCProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933061A2204E7F0100FEB7C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		933061A3204E7F0100FEB7C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,8 +75,8 @@
 		93C14FC1205F515F005A42CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C14FC4205F5946005A42CC /* WFBackgroundTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBackgroundTaskManager.h; sourceTree = "<group>"; };
 		93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBackgroundTaskManager.m; sourceTree = "<group>"; };
-		93C14FC8205F8928005A42CC /* WF_BMK_LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_BMK_LocationManager.h; sourceTree = "<group>"; };
-		93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_BMK_LocationManager.m; sourceTree = "<group>"; };
+		93C14FC8205F8928005A42CC /* WFBMKLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBMKLocationManager.h; sourceTree = "<group>"; };
+		93C14FC9205F8928005A42CC /* WFBMKLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBMKLocationManager.m; sourceTree = "<group>"; };
 		93C14FCC205FBA49005A42CC /* YZBackgroundTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBackgroundTaskManager.h; sourceTree = "<group>"; };
 		93C14FCD205FBA49005A42CC /* YZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLocationManager.m; sourceTree = "<group>"; };
 		93C14FCE205FBA49005A42CC /* YZLocationManagerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLocationManagerMacro.h; sourceTree = "<group>"; };
@@ -103,7 +96,6 @@
 		B151A02D4EE672180FCA25DB /* Pods-WFCProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2688D3641DEBFFE843925EC /* Pods-WFCProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectTests/Pods-WFCProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C72644F1C2FADFF1BE6D28C6 /* libPods-WFCProject-WFCProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject-WFCProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD4236A2131935F7352DC8FD /* libPods-WFCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67614DE397DD6BFEBA553DA /* libPods-WFCProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				887502797CA62E86265BA2DF /* libPods-WFCProject.a in Frameworks */,
+				37BAD6313D9F5D398BA3DFBE /* libPods-WFCProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FFA3B71C028A75B3A5F40D9 /* libPods-WFCProjectTests.a in Frameworks */,
-				2C093F3BE7B4BD18039C7EDF /* libPods-WFCProject-WFCProjectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC0F705B9B7024BF6784B7A /* libPods-WFCProjectUITests.a in Frameworks */,
-				F0E6C758FCE7992E9FDE5FEC /* libPods-WFCProject-WFCProjectUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +227,8 @@
 		93C14FC7205F887D005A42CC /* WF_BMK_LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				93C14FC8205F8928005A42CC /* WF_BMK_LocationManager.h */,
-				93C14FC9205F8928005A42CC /* WF_BMK_LocationManager.m */,
+				93C14FC8205F8928005A42CC /* WFBMKLocationManager.h */,
+				93C14FC9205F8928005A42CC /* WFBMKLocationManager.m */,
 			);
 			path = WF_BMK_LocationManager;
 			sourceTree = "<group>";
@@ -323,10 +311,6 @@
 				B151A02D4EE672180FCA25DB /* Pods-WFCProjectTests.release.xcconfig */,
 				AA5B1A20166B47878322C96F /* Pods-WFCProjectUITests.debug.xcconfig */,
 				5E0C17881D4567505044377F /* Pods-WFCProjectUITests.release.xcconfig */,
-				6CD164178662B04DDCC0AE7D /* Pods-WFCProject-WFCProjectTests.debug.xcconfig */,
-				839BEC6F9A86DE2F5BBF3AFF /* Pods-WFCProject-WFCProjectTests.release.xcconfig */,
-				289808690E0C22003219ADE8 /* Pods-WFCProject-WFCProjectUITests.debug.xcconfig */,
-				1608ACA2D794D44BF90EB00F /* Pods-WFCProject-WFCProjectUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -334,11 +318,11 @@
 		F9593A62B52DE746A146F602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD4236A2131935F7352DC8FD /* libPods-WFCProject.a */,
 				2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */,
 				E67614DE397DD6BFEBA553DA /* libPods-WFCProjectUITests.a */,
 				C72644F1C2FADFF1BE6D28C6 /* libPods-WFCProject-WFCProjectTests.a */,
 				252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */,
+				329840AF234BC8F71B6B72ED /* libPods-WFCProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,12 +354,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 933061CE204E7F0200FEB7C3 /* Build configuration list for PBXNativeTarget "WFCProjectTests" */;
 			buildPhases = (
-				69DD2C37D3C7C32A43FC6CFB /* [CP] Check Pods Manifest.lock */,
 				933061B3204E7F0100FEB7C3 /* Sources */,
 				933061B4204E7F0100FEB7C3 /* Frameworks */,
 				933061B5204E7F0100FEB7C3 /* Resources */,
-				A67608B38BAD33539BB24A7F /* [CP] Embed Pods Frameworks */,
-				D2E66A26C2E630950E6AF785 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,12 +372,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 933061D1204E7F0200FEB7C3 /* Build configuration list for PBXNativeTarget "WFCProjectUITests" */;
 			buildPhases = (
-				962CC9F2ABBFBFD8D6A6D6E5 /* [CP] Check Pods Manifest.lock */,
 				933061BE204E7F0200FEB7C3 /* Sources */,
 				933061BF204E7F0200FEB7C3 /* Frameworks */,
 				933061C0204E7F0200FEB7C3 /* Resources */,
-				FE24313D0603958A2E56EF36 /* [CP] Embed Pods Frameworks */,
-				FB56414E211D863153625A1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -516,21 +494,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFCProject/Pods-WFCProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69DD2C37D3C7C32A43FC6CFB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		7DB18984EF2AB644A39FBAC6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,81 +509,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		962CC9F2ABBFBFD8D6A6D6E5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A67608B38BAD33539BB24A7F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFCProject-WFCProjectTests/Pods-WFCProject-WFCProjectTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2E66A26C2E630950E6AF785 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFCProject-WFCProjectTests/Pods-WFCProject-WFCProjectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB56414E211D863153625A1E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFCProject-WFCProjectUITests/Pods-WFCProject-WFCProjectUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE24313D0603958A2E56EF36 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFCProject-WFCProjectUITests/Pods-WFCProject-WFCProjectUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -633,7 +521,7 @@
 				93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */,
 				93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */,
 				93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */,
-				93C14FCA205F8928005A42CC /* WF_BMK_LocationManager.m in Sources */,
+				93C14FCA205F8928005A42CC /* WFBMKLocationManager.m in Sources */,
 				93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
 				93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */,
@@ -831,7 +719,6 @@
 		};
 		933061CF204E7F0200FEB7C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CD164178662B04DDCC0AE7D /* Pods-WFCProject-WFCProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -847,7 +734,6 @@
 		};
 		933061D0204E7F0200FEB7C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 839BEC6F9A86DE2F5BBF3AFF /* Pods-WFCProject-WFCProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -863,7 +749,6 @@
 		};
 		933061D2204E7F0200FEB7C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 289808690E0C22003219ADE8 /* Pods-WFCProject-WFCProjectUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS6LLA28T8;
@@ -878,7 +763,6 @@
 		};
 		933061D3204E7F0200FEB7C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1608ACA2D794D44BF90EB00F /* Pods-WFCProject-WFCProjectUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KS6LLA28T8;

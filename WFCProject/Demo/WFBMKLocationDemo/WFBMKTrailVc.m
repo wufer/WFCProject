@@ -18,7 +18,7 @@
 
 #import <YYCategories.h>
 
-@interface WFBMKTrailVc ()<BMKMapViewDelegate,WF_BMK_LocationManagerDelegate>
+@interface WFBMKTrailVc ()<BMKMapViewDelegate>
 
 /**
  模拟数据源
@@ -29,6 +29,16 @@
  */
 @property (nonatomic,strong) BMKMapView *mapView;
 
+/**
+ locationState
+ */
+@property (nonatomic,assign) BOOL locationState;
+
+@property (nonatomic,strong) NSMutableArray <LocationModel *>*routeArr;
+
+@property (nonatomic,strong) BMKPolyline *routePolyline;
+
+
 
 @end
 static CLLocationManager *clLocationManager;
@@ -38,43 +48,45 @@ static CLLocationManager *clLocationManager;
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
     _mapView.delegate = self;
-    [WF_BMK_LocationManager sharedLocationManager].delegate = self;
+ //  [WFBMKLocationManager sharedLocationManager].delegate = self;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil;
-    [WF_BMK_LocationManager sharedLocationManager].delegate = nil;
+  //  [WFBMKLocationManager sharedLocationManager].delegate = nil;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addMapView];
-    [self drawTheOverlay];
+    _locationState = NO;
     //假设定位中心点
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 23.22504044;
     coordinate.longitude = 113.4938237;
+     [self drawTheOverlay];
     [_mapView setCenterCoordinate:coordinate];
-    [WF_BMK_LocationManager sharedLocationManager].locationInterval = 5.0f;
-    [[WF_BMK_LocationManager sharedLocationManager] backGCoordinate:^(CLLocationCoordinate2D coordinate, NSError *error) {
-        NSLog(@"后台经纬度");
+    [[WFBMKLocationManager sharedLocationManager]backgroundLocationHander:^(CLLocationCoordinate2D coordinate) {
+        NSLog(@"后台定位%f  %f",coordinate.latitude,coordinate.longitude);
     }];
-    [[WF_BMK_LocationManager sharedLocationManager] activeCoordinate:^(CLLocationCoordinate2D coordinate, NSError *error) {
-        NSLog(@"前台经纬度");
+    [[WFBMKLocationManager sharedLocationManager]foregroundLocationHander:^(CLLocationCoordinate2D coordinate) {
+         NSLog(@"前台定位%f  %f",coordinate.latitude,coordinate.longitude);
     }];
-      [[WF_BMK_LocationManager sharedLocationManager]startLocationService];
-//    YZLocationManager *manager = [YZLocationManager sharedLocationManager];
-//    manager.isBackGroundLocation = YES;
-//    manager.locationInterval = 10;
-//    [manager startLocationService];
-}
--(void)activeCoordinate:(CLLocationCoordinate2D)coordinate{
-    NSLog(@"前台代理定位");
-}
+    [[WFBMKLocationManager sharedLocationManager]residentLocationHander:^(CLLocationCoordinate2D coordinate) {
+         NSLog(@"常驻定位%f  %f",coordinate.latitude,coordinate.longitude);
+    }];
+    [[WFBMKLocationManager sharedLocationManager] startLocationService];
 
--(void)backGCoordinate:(CLLocationCoordinate2D)coordinate{
-    NSLog(@"后台代理定位");
+}
+-(void)changeLocation:(UIButton *)sender{
+    _locationState = !_locationState;
+    sender.selected = _locationState;
+    if (_locationState) {
+        [[WFBMKLocationManager sharedLocationManager] startLocationService];
+    }else{
+        [[WFBMKLocationManager sharedLocationManager] stopLocationService];
+    }
 }
 
 #pragma mark createUI
@@ -82,21 +94,15 @@ static CLLocationManager *clLocationManager;
     _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, KNAVHIGH, KSCREENWIDTH,KSCREENHEIGHT-KNAVHIGH)];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
+     _mapView.userTrackingMode             = BMKUserTrackingModeFollowWithHeading;
    [self.view addSubview:_mapView];
 }
 -(void)loardOldRoute{
     
 }
 #pragma mark location&delegate
--(void)startLocation{
-  
-}
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
-    NSLog(@"%f %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-}
 
-- (void)didFailToLocateUserWithError:(NSError *)error{
-}
+
 #pragma mark BMKOverlayView&delegate
 -(void)drawTheOverlay{
     if (self.dataDict) {
@@ -142,7 +148,7 @@ static CLLocationManager *clLocationManager;
         BMKPolylineView *polylineView = [[BMKPolylineView alloc]initWithOverlay:overlay];
         polylineView.isFocus = NO;
         polylineView.strokeColor = [UIColor purpleColor];
-        polylineView.lineWidth = 2;
+        polylineView.lineWidth = 4;
         return polylineView;
     }else{
          return nil;
@@ -152,6 +158,23 @@ static CLLocationManager *clLocationManager;
 -(void)cleanOverlayView{
     NSArray *overlayViews = [NSArray arrayWithArray:_mapView.overlays];
     [_mapView removeOverlays:overlayViews];
+}
+
+-(void)reloadPolyLine{
+    if (self.routePolyline) {
+        NSLog(@"移除overlay");
+        [_mapView removeOverlay:self.routePolyline];
+    }
+    CLLocationCoordinate2D *coors = malloc(self.routeArr.count * sizeof(CLLocationCoordinate2D));
+    for (int i = 0; i<self.routeArr.count; i++) {
+        LocationModel *model = self.routeArr[i];
+        coors[i].latitude =[model.lat floatValue];
+        coors[i].longitude = [model.lon floatValue];
+    }
+    self.routePolyline = [BMKPolyline polylineWithCoordinates:coors count:self.routeArr.count];
+    NSLog(@"更新overlay");
+    [_mapView addOverlay:self.routePolyline];
+    
 }
 
 - (BMKMapRect)mapViewFitPolyLine:(BMKPolyline *) polyLine {
@@ -203,25 +226,12 @@ static CLLocationManager *clLocationManager;
     }
     return _dataDict;
 }
-//-(BMKLocationService *)locationService{
-//    if (!_locationService) {
-//        //初始化实例
-//        _locationService = [[BMKLocationService alloc] init];
-//        //设置delegate
-//        _locationService.delegate = self;
-//        //设置定位服务是否会被系统暂停
-//        _locationService.pausesLocationUpdatesAutomatically = NO;
-//        //设置距离过滤参数
-//        _locationService.distanceFilter = kCLDistanceFilterNone;
-//        //设置预期精度参数
-//        _locationService.desiredAccuracy = kCLLocationAccuracyBest;
-//        //设置是否自动停止位置更新
-//        _locationService.pausesLocationUpdatesAutomatically = NO;
-//        //设置是否允许后台定位
-//        _locationService.allowsBackgroundLocationUpdates = YES;
-//    }
-//    return _locationService;
-//}
+-(NSMutableArray<LocationModel *> *)routeArr{
+    if (!_routeArr) {
+        _routeArr = [[NSMutableArray alloc]init];
+    }
+    return _routeArr;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

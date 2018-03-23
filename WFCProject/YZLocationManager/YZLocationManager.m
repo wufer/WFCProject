@@ -146,7 +146,7 @@ static CLLocationManager *clLocationManager;
 
 #pragma mark - Private (私有方法)
 - (void)restartLocationUpdates{
-    YZLMLOG(@"重启定位服务");
+    YZLMLOG(@"60s重启定位服务   保持常驻");
     if (self.restartTime) {
         [self.restartTime invalidate];
         self.restartTime = nil;
