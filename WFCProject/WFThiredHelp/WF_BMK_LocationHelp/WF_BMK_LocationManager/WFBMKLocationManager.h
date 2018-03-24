@@ -71,7 +71,12 @@ typedef enum {
 /**
  定位模式
  */
-@property (nonatomic,assign)WFBMKLocationMode locationMode;
+@property (nonatomic,assign) WFBMKLocationMode locationMode;
+
+/**
+ 仅在iOS8以后有效 控制是否显示定位蓝条 默认显示
+ */
+@property (nonatomic,assign) BOOL showTheBlueAlert;
 
 +(WFBMKLocationManager *)sharedLocationManager;
 /**

@@ -46,6 +46,7 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
     if (self = [super init]) {
         _isBackGroundLocation = NO;
         _isStartLocation = NO;
+        _showTheBlueAlert = YES;
         self.locationService = [[BMKLocationService alloc]init];
         if (!self.locationInterval) {//当用户设置timerMode时提供默认回调时间
             self.locationInterval = 30.0f;
@@ -176,7 +177,7 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
 -(void)applicationEnterBackground{
      NSLog(@"前台操作 切换后台模式");
     _isBackGroundLocation = YES;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0 && self.showTheBlueAlert) {
            [_clLocationManager requestAlwaysAuthorization];
     }
     if (_isStartLocation) {
