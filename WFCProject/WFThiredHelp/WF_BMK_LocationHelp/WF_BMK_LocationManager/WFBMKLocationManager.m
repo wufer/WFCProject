@@ -14,14 +14,15 @@
 @property (nonatomic,strong) BMKLocationService *locationService;
 @property (nonatomic,strong,readwrite) CLLocation *lastLocation;
 @property (nonatomic,strong) WFBackgroundTaskManager *bgTask;
+
 @property (nonatomic,assign) BOOL isBackGroundLocation;
 @property (nonatomic,assign) BOOL isStartLocation;
 
 @property (nonatomic,strong) NSTimer *restaertTimer;
+@property (nonatomic,strong) NSTimer *locationTimer;
+
 @property (nonatomic,assign) NSTimeInterval nowLocationTime;
 @property (nonatomic,assign) NSTimeInterval lastLocationTime;
-@property (nonatomic,strong) NSTimer *backgroundLocationTimer;
-
 
 @property (nonatomic,copy) void(^getCurrentLocationHander) (CLLocationCoordinate2D coordinate,NSError *rerror);
 @property (nonatomic,copy) void (^foregroundLocationHander)(CLLocationCoordinate2D coordinate);
@@ -48,8 +49,9 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
         _isStartLocation = NO;
         _showTheBlueAlert = YES;
         self.locationService = [[BMKLocationService alloc]init];
+        self.locationMode = WFBMKLocationModeNormal;
         if (!self.locationInterval) {//当用户设置timerMode时提供默认回调时间
-            self.locationInterval = 30.0f;
+            self.locationInterval = 10.0f;
         }
         self.locationService.pausesLocationUpdatesAutomatically = NO;
         if ([[[UIDevice currentDevice] systemVersion] floatValue]>=9.0) {
@@ -69,18 +71,40 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
         [self.restaertTimer invalidate];
         self.restaertTimer = nil;
     }
-    if (self.backgroundLocationTimer) {
-        [self.backgroundLocationTimer invalidate];
-        self.backgroundLocationTimer = nil;
+    if (self.locationTimer) {
+        [self.locationTimer invalidate];
+        self.locationTimer = nil;
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 #pragma mark - Custom Accessors
 -(void)setLocationInterval:(NSTimeInterval)locationInterval{
     _locationInterval = locationInterval;
-    if (self.backgroundLocationTimer) {//重新设置定时器时间 停止当前计时器
-        [self.backgroundLocationTimer invalidate];
-        self.backgroundLocationTimer = nil;
+    if (self.locationTimer) {//重新设置定时器时间 停止当前计时器
+        [self.locationTimer invalidate];
+        self.locationTimer = nil;
+    }
+}
+-(void)setLocationMode:(WFBMKLocationMode)locationMode{
+    _locationMode = locationMode;
+    switch (_locationMode) {
+        case WFBMKLocationModeNormal:{
+            if (self.locationTimer) {
+                [self.locationTimer invalidate];
+                self.locationTimer = nil;
+            }
+        }
+            break;
+        case WFBMKLocationModeTimerNormal:{
+            if (self.isStartLocation) {
+                self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:self.locationInterval target:self selector:@selector(timerLocationUpdates) userInfo:nil repeats:YES];
+                [[NSRunLoop currentRunLoop] addTimer:self.locationTimer forMode:NSRunLoopCommonModes];
+                [self.locationTimer fire];
+            }
+        }
+            break;
+        default:
+            break;
     }
 }
 #pragma mark - Public
@@ -94,13 +118,20 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
         }
         _isStartLocation = YES;
         self.locationService.delegate = self;
+    if (self.locationMode == WFBMKLocationModeTimerNormal) {
+        if (_locationTimer) {
+            [_locationTimer invalidate];
+            _locationTimer = nil;
+        }
+        _locationTimer = [NSTimer scheduledTimerWithTimeInterval:self.locationInterval target:self selector:@selector(timerLocationUpdates) userInfo:nil repeats:YES];
+    }
         [self.locationService startUserLocationService];
 }
 -(void)stopLocationService{
      NSLog(@"WFBNK location stop");
-    if (self.backgroundLocationTimer) {
-        [self.backgroundLocationTimer invalidate];
-        self.backgroundLocationTimer = nil;
+    if (self.locationTimer) {
+        [self.locationTimer invalidate];
+        self.locationTimer = nil;
     }
     if (self.restaertTimer) {
         [self.restaertTimer invalidate];
@@ -161,12 +192,28 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
 }
 
 -(void)restartLocationUpdates{
-    NSLog(@"定位重启");
+   
     if (self.restaertTimer) {
         [self.restaertTimer invalidate];
         self.restaertTimer = nil;
     }
+    NSLog(@"定位重启----->保证后台活跃");
     [self startLocationService];
+}
+-(void)timerLocationUpdates{
+    if (!self.lastLocation) {
+        return;
+    }
+    if ((self.nowLocationTime - self.lastLocationTime)<=30.0f) {//两次定位时差 当30s内未进行经纬度更新时重启定位
+        self.nowLocationTime = [[NSDate date] timeIntervalSince1970];
+        if (<#condition#>) {
+            <#statements#>
+        }
+        
+    }else{
+        NSLog(@"定位重启----->30s内经纬度未进行更新 重启保证经纬度更新");
+        [self startLocationService];
+    }
 }
 
 -(void)addBackgroundTask{
@@ -189,9 +236,9 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
 -(void)applicationBecomeActive{
     NSLog(@"前台操作 切换前台模式");
     _isBackGroundLocation = NO;
-    if (self.backgroundLocationTimer) {
-        [self.backgroundLocationTimer invalidate];
-        self.backgroundLocationTimer = nil;
+    if (self.locationTimer) {
+        [self.locationTimer invalidate];
+        self.locationTimer = nil;
     }
     if (self.restaertTimer) {
         [self.restaertTimer invalidate];
@@ -203,11 +250,39 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
     }
 }
 
+-(void)backgroundBlockAndDelegateCallBack:(CLLocationCoordinate2D)locationCoordiate{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(WFBMK_backgroundLocation:)]) {
+        [self.delegate WFBMK_backgroundLocation:locationCoordiate];
+    }
+    if (_backgroundLocationHander) {
+        _backgroundLocationHander(locationCoordiate);
+    }
+}
+
+-(void)foregroundBlockAndDelegateCallBack:(CLLocationCoordinate2D)locationCoordiate{
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(WFBMK_residentLocation:)]) {
+        [self.delegate WFBMK_residentLocation:locationCoordiate];
+    }
+    if (_foregroundLocationHander) {
+        _foregroundLocationHander(locationCoordiate);
+    }
+}
+
+-(void)blockAndDelegateCallBack:(CLLocationCoordinate2D)locationCoordiate{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(WFBMK_residentLocation:)]) {
+        [self.delegate WFBMK_residentLocation:locationCoordiate];
+    }
+    if (_residentLocationHander) {
+        _residentLocationHander(locationCoordiate);
+    }
+}
+
 #pragma mark - BMKLocationServiceDelegate
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
+    //更新全局经纬度
     CLLocationCoordinate2D locationCoordiate ;
     if (_lastLocation) {
-        if (userLocation.location.horizontalAccuracy<40 && userLocation.location.horizontalAccuracy>0 ){//保证定位精度
+        if (userLocation.location.horizontalAccuracy<40 && userLocation.location.horizontalAccuracy>0 && userLocation.location.verticalAccuracy<40 && userLocation.location.verticalAccuracy>0 ){//保证定位精度
             self.lastLocation = userLocation.location;
             locationCoordiate = userLocation.location.coordinate;
         }else{//当精度存在较大误差时 不对当前经纬度进行更新
@@ -222,43 +297,43 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
         _getCurrentLocationHander(locationCoordiate,nil);
         _getCurrentLocationHander = nil;
     }
+    
+    
     if (self.isBackGroundLocation) {
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(WFBMK_backgroundLocation:)]) {
-                [self.delegate WFBMK_backgroundLocation:locationCoordiate];
+        switch (self.locationMode) {
+            case WFBMKLocationModeNormal:{
+                [self backgroundBlockAndDelegateCallBack:locationCoordiate];
+                [self blockAndDelegateCallBack:locationCoordiate];
+                if (self.restaertTimer) {
+                    return;
+                }else{
+                    NSLog(@"开启定时器定时重启保证应用活跃");
+                    [self addBackgroundTask];//加入后台任务
+                    self.restaertTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(restartLocationUpdates) userInfo:nil repeats:NO];
+                    [[NSRunLoop currentRunLoop] addTimer:self.restaertTimer forMode:NSRunLoopCommonModes];
+                }
             }
-            if ([self.delegate respondsToSelector:@selector(WFBMK_residentLocation:)]) {
-                [self.delegate WFBMK_residentLocation:locationCoordiate];
+                break;
+            case WFBMKLocationModeTimerNormal:{
+                if (!_locationTimer) {
+                    
+                }
             }
-        }
-        if (_backgroundLocationHander) {
-            _backgroundLocationHander(locationCoordiate);
-        }
-        if (_residentLocationHander) {
-            _residentLocationHander(locationCoordiate);
-        }
-        if (self.restaertTimer) {
-            return;
-        }else{
-            NSLog(@"开启定时器定时重启保证应用活跃");
-            [self addBackgroundTask];//加入后台任务
-            self.restaertTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(restartLocationUpdates) userInfo:nil repeats:NO];
-            [[NSRunLoop currentRunLoop] addTimer:self.restaertTimer forMode:NSRunLoopCommonModes];
+                break;
+            case WFBMKLocationModeTimerRepeat:{
+                [self stopLocationService];
+            }
+                break;
+            default:{
+                
+            }
+                break;
         }
     }else{
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(WFBMK_residentLocation:)]) {
-                [self.delegate WFBMK_residentLocation:locationCoordiate];
-            }
-            if ([self.delegate respondsToSelector:@selector(WFBMK_foregroundLocation:)]) {
-                [self.delegate WFBMK_foregroundLocation:locationCoordiate];
-            }
-        }
-        if (_foregroundLocationHander) {
-            _foregroundLocationHander(locationCoordiate);
-        }
-        if (_residentLocationHander) {
-            _residentLocationHander(locationCoordiate);
+        if (self.locationMode == WFBMKLocationModeNormal) {
+          
+            
+           
         }
     }
 }

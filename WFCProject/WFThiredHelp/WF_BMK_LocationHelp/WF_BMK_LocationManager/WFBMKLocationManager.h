@@ -46,9 +46,9 @@
 @end
 
 typedef enum {
-    WFBMKLocationModeNormal = 0, //普通回调模式 根据位移距离产生回调 默认
-    //TODO:TODO定时回调
-    WFBMKLocationModeTImer ,        //定时回调模式 根据设置的时间定时回调
+    WFBMKLocationModeNormal = 0,            //普通回调模式 根据位移距离产生回调  调用频率不稳定 默认
+    WFBMKLocationModeTimerNormal,         //定时回调模式  根据位移距离修改当前经纬度  调用频率稳定
+    WFBMKLocationModeTimerRepeat          //定时回调模式 根据设置的时间重复开关定位
 }WFBMKLocationMode;
 
 @interface WFBMKLocationManager : NSObject
@@ -88,14 +88,39 @@ typedef enum {
  */
 -(void)stopLocationService;
 
+/**
+ 获取当前经纬度地址
+
+ @param coordinateHander coordinateHander description
+ */
 -(void)getCurrentLocationHander:(void(^)(CLLocationCoordinate2D coordiante,NSError *error))coordinateHander;
 
+/**
+ 前台获取经纬度地址
+
+ @param coordinateHander coordinateHander description
+ */
 -(void)foregroundLocationHander:(void(^)(CLLocationCoordinate2D coordinate))coordinateHander;
 
+/**
+ 后台获取经纬度地址
+
+ @param coordinateHander coordinateHander description
+ */
 -(void)backgroundLocationHander:(void(^)(CLLocationCoordinate2D coordinate))coordinateHander;
 
+/**
+ 常驻经纬度地址
+
+ @param coordinateHander coordinateHander description
+ */
 -(void)residentLocationHander:(void(^)(CLLocationCoordinate2D coordinate))coordinateHander;
 
+/**
+ 经纬度地址获取失败
+
+ @param coordinateHander coordinateHander description
+ */
 -(void)failLocationHander:(void(^)(CLLocationCoordinate2D coordinate,NSError *error))coordinateHander;
 
 
