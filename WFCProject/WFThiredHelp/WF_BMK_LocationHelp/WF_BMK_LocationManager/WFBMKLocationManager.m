@@ -93,15 +93,20 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
                 [self.locationTimer invalidate];
                 self.locationTimer = nil;
             }
-        }
+        };
             break;
+        case WFBMKLocationModeTimerRepeat:
         case WFBMKLocationModeTimerNormal:{
+            if (self.locationTimer) {
+                [self.locationTimer invalidate];
+                self.locationTimer = nil;
+            }
             if (self.isStartLocation) {
                 self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:self.locationInterval target:self selector:@selector(timerLocationUpdates) userInfo:nil repeats:YES];
                 [[NSRunLoop currentRunLoop] addTimer:self.locationTimer forMode:NSRunLoopCommonModes];
                 [self.locationTimer fire];
             }
-        }
+        };
             break;
         default:
             break;
@@ -112,18 +117,19 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
     NSLog(@"WFBMK location start");
     self.nowLocationTime = [[NSDate date] timeIntervalSince1970];
         if (![self checkCLAuthorizationStatus]) {
-            NSLog(@"定位服务未开启");
+            NSLog(@"定位服务未开启 定位开启失败！");
             _isStartLocation = NO;
             return;
         }
         _isStartLocation = YES;
         self.locationService.delegate = self;
-    if (self.locationMode == WFBMKLocationModeTimerNormal) {
+    if (self.locationMode == WFBMKLocationModeTimerNormal || self.locationMode == WFBMKLocationModeTimerRepeat) {
         if (_locationTimer) {
             [_locationTimer invalidate];
             _locationTimer = nil;
         }
         _locationTimer = [NSTimer scheduledTimerWithTimeInterval:self.locationInterval target:self selector:@selector(timerLocationUpdates) userInfo:nil repeats:YES];
+        
     }
         [self.locationService startUserLocationService];
 }
@@ -197,21 +203,25 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
         [self.restaertTimer invalidate];
         self.restaertTimer = nil;
     }
-    NSLog(@"定位重启----->保证后台活跃");
+    NSLog(@"重启定位----->保证后台活跃");
     [self startLocationService];
 }
 -(void)timerLocationUpdates{
     if (!self.lastLocation) {
         return;
     }
-    if ((self.nowLocationTime - self.lastLocationTime)<=30.0f) {//两次定位时差 当30s内未进行经纬度更新时重启定位
-        self.nowLocationTime = [[NSDate date] timeIntervalSince1970];
-        if (<#condition#>) {
-            <#statements#>
-        }
-        
+    if (!self.isStartLocation) {
+        [self.locationTimer invalidate];
+        self.locationTimer = nil;
+        return;
+    }
+    [self blockAndDelegateCallBack:self.lastLocation.coordinate];
+    if (self.isBackGroundLocation) {
+        [self backgroundBlockAndDelegateCallBack:self.lastLocation.coordinate];
     }else{
-        NSLog(@"定位重启----->30s内经纬度未进行更新 重启保证经纬度更新");
+        [self foregroundBlockAndDelegateCallBack:self.lastLocation.coordinate];
+    }
+    if (self.locationMode == WFBMKLocationModeTimerRepeat) {
         [self startLocationService];
     }
 }
@@ -277,6 +287,15 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
     }
 }
 
+-(void)keepBackGroundAlive{
+    if (!self.restaertTimer){
+        [self addBackgroundTask];//加入后台任务
+        NSLog(@"开启定时器 新增后台任务 保证应用活跃");
+        self.restaertTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(restartLocationUpdates) userInfo:nil repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:self.restaertTimer forMode:NSRunLoopCommonModes];
+    }
+}
+
 #pragma mark - BMKLocationServiceDelegate
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
     //更新全局经纬度
@@ -304,20 +323,9 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
             case WFBMKLocationModeNormal:{
                 [self backgroundBlockAndDelegateCallBack:locationCoordiate];
                 [self blockAndDelegateCallBack:locationCoordiate];
-                if (self.restaertTimer) {
-                    return;
-                }else{
-                    NSLog(@"开启定时器定时重启保证应用活跃");
-                    [self addBackgroundTask];//加入后台任务
-                    self.restaertTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(restartLocationUpdates) userInfo:nil repeats:NO];
-                    [[NSRunLoop currentRunLoop] addTimer:self.restaertTimer forMode:NSRunLoopCommonModes];
-                }
             }
                 break;
             case WFBMKLocationModeTimerNormal:{
-                if (!_locationTimer) {
-                    
-                }
             }
                 break;
             case WFBMKLocationModeTimerRepeat:{
@@ -325,20 +333,33 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
             }
                 break;
             default:{
-                
             }
                 break;
         }
+        [self keepBackGroundAlive];
     }else{
-        if (self.locationMode == WFBMKLocationModeNormal) {
-          
-            
-           
+        switch (self.locationMode) {
+            case WFBMKLocationModeNormal:{
+                [self foregroundBlockAndDelegateCallBack:locationCoordiate];
+                [self blockAndDelegateCallBack:locationCoordiate];
+            }
+                break;
+            case WFBMKLocationModeTimerNormal:{
+            }
+                break;
+            case WFBMKLocationModeTimerRepeat:{
+                [self stopLocationService];
+            }
+                break;
+                
+            default:
+                break;
         }
     }
 }
 
 -(void)didFailToLocateUserWithError:(NSError *)error{
+    NSLog(@"定位失败！ ");
     CLLocationCoordinate2D coordinate;
     if (_lastLocation) {
         coordinate = _lastLocation.coordinate;
@@ -360,6 +381,13 @@ static CLLocationManager *_clLocationManager;//系统定位管理访问相关定
     }
 }
 
+//if ((self.nowLocationTime - self.lastLocationTime)<=30.0f) {//两次定位时差 当30s内未进行经纬度更新时重启定位
+//    self.nowLocationTime = [[NSDate date] timeIntervalSince1970];
+//
+//}else{
+//    NSLog(@"定位重启----->30s内经纬度未进行更新 重启保证经纬度更新");
+//    [self startLocationService];
+//}
 
 
 @end

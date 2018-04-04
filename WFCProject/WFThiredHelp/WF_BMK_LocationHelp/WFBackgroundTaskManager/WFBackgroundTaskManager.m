@@ -77,7 +77,7 @@
             NSLog(@"持续后台任务      ID  %@",[self.BGTaskIDList objectAtIndex:0]);
         }
         if (isAll) {
-            NSLog(@"没有更多后台任务");
+            NSLog(@"关闭全部后台任务");
             [application endBackgroundTask:self.masterTaskID];
             self.masterTaskID = UIBackgroundTaskInvalid;
         }else{

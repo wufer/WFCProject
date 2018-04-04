@@ -74,7 +74,7 @@ typedef enum {
 @property (nonatomic,assign) WFBMKLocationMode locationMode;
 
 /**
- 仅在iOS8以后有效 控制是否显示定位蓝条 默认显示
+ 仅在iOS8以后有效 控制是否显示定位蓝条 默认显示 关闭时会在进入后台模式时进行询问定位调用 选择后蓝条隐藏
  */
 @property (nonatomic,assign) BOOL showTheBlueAlert;
 
@@ -96,14 +96,14 @@ typedef enum {
 -(void)getCurrentLocationHander:(void(^)(CLLocationCoordinate2D coordiante,NSError *error))coordinateHander;
 
 /**
- 前台获取经纬度地址
+ 前台获取经纬度地址 调试阶段 后期剔除
 
  @param coordinateHander coordinateHander description
  */
 -(void)foregroundLocationHander:(void(^)(CLLocationCoordinate2D coordinate))coordinateHander;
 
 /**
- 后台获取经纬度地址
+ 后台获取经纬度地址 调试阶段 后期剔除
 
  @param coordinateHander coordinateHander description
  */

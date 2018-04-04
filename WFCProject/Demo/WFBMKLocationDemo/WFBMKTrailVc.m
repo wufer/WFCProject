@@ -76,6 +76,8 @@ static CLLocationManager *clLocationManager;
     [[WFBMKLocationManager sharedLocationManager]residentLocationHander:^(CLLocationCoordinate2D coordinate) {
          NSLog(@"常驻定位%f  %f",coordinate.latitude,coordinate.longitude);
     }];
+    [WFBMKLocationManager sharedLocationManager].locationInterval = 10;
+    [WFBMKLocationManager sharedLocationManager].locationMode = WFBMKLocationModeTimerNormal;
     [[WFBMKLocationManager sharedLocationManager] startLocationService];
 
 }
