@@ -4,6 +4,7 @@
 target 'WFCProject' do
 pod 'YYCategories'
 pod 'BaiduMapKit'
+pod 'AFNetworking', '~> 3.1.0'
 #use_frameworks!
 #pod 'ReactiveCocoa'
 end
