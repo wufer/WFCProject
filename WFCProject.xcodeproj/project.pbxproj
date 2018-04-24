@@ -20,8 +20,6 @@
 		93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FC1205F515F005A42CC /* Assets.xcassets */; };
 		93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */; };
 		93C14FCA205F8928005A42CC /* WFBMKLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FC9205F8928005A42CC /* WFBMKLocationManager.m */; };
-		93C14FD1205FBA49005A42CC /* YZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FCD205FBA49005A42CC /* YZLocationManager.m */; };
-		93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */; };
 		93C14FDA2060EDC7005A42CC /* point.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C14FD42060EDC6005A42CC /* point.plist */; };
 		93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD62060EDC6005A42CC /* LocationModel.m */; };
 		93C14FDC2060EDC7005A42CC /* WFBMKTrailVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C14FD82060EDC7005A42CC /* WFBMKTrailVc.m */; };
@@ -77,11 +75,6 @@
 		93C14FC5205F5946005A42CC /* WFBackgroundTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBackgroundTaskManager.m; sourceTree = "<group>"; };
 		93C14FC8205F8928005A42CC /* WFBMKLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBMKLocationManager.h; sourceTree = "<group>"; };
 		93C14FC9205F8928005A42CC /* WFBMKLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBMKLocationManager.m; sourceTree = "<group>"; };
-		93C14FCC205FBA49005A42CC /* YZBackgroundTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBackgroundTaskManager.h; sourceTree = "<group>"; };
-		93C14FCD205FBA49005A42CC /* YZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLocationManager.m; sourceTree = "<group>"; };
-		93C14FCE205FBA49005A42CC /* YZLocationManagerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLocationManagerMacro.h; sourceTree = "<group>"; };
-		93C14FCF205FBA49005A42CC /* YZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLocationManager.h; sourceTree = "<group>"; };
-		93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBackgroundTaskManager.m; sourceTree = "<group>"; };
 		93C14FD42060EDC6005A42CC /* point.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = point.plist; sourceTree = "<group>"; };
 		93C14FD62060EDC6005A42CC /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 		93C14FD72060EDC6005A42CC /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
@@ -233,19 +226,6 @@
 			path = WF_BMK_LocationManager;
 			sourceTree = "<group>";
 		};
-		93C14FCB205FBA49005A42CC /* YZLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				93C14FCC205FBA49005A42CC /* YZBackgroundTaskManager.h */,
-				93C14FCD205FBA49005A42CC /* YZLocationManager.m */,
-				93C14FCE205FBA49005A42CC /* YZLocationManagerMacro.h */,
-				93C14FCF205FBA49005A42CC /* YZLocationManager.h */,
-				93C14FD0205FBA49005A42CC /* YZBackgroundTaskManager.m */,
-			);
-			name = YZLocationManager;
-			path = WFCProject/YZLocationManager;
-			sourceTree = SOURCE_ROOT;
-		};
 		93C14FD32060ED76005A42CC /* WFBMKLocationDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +266,6 @@
 		93D05D72205A1D3C007CFEE7 /* WFThiredHelp */ = {
 			isa = PBXGroup;
 			children = (
-				93C14FCB205FBA49005A42CC /* YZLocationManager */,
 				93D05D73205A1D3C007CFEE7 /* WF_BMK_LocationHelp */,
 			);
 			path = WFThiredHelp;
@@ -517,12 +496,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */,
-				93C14FD1205FBA49005A42CC /* YZLocationManager.m in Sources */,
 				93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */,
 				93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */,
 				93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */,
 				93C14FCA205F8928005A42CC /* WFBMKLocationManager.m in Sources */,
-				93C14FD2205FBA49005A42CC /* YZBackgroundTaskManager.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
 				93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */,
 				93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */,
