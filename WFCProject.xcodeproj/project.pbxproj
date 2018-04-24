@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		37BAD6313D9F5D398BA3DFBE /* libPods-WFCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 329840AF234BC8F71B6B72ED /* libPods-WFCProject.a */; };
+		39A180F3208EF8E40068007E /* WF_WKWeb_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A180F2208EF8E40068007E /* WF_WKWeb_ViewController.m */; };
+		39A180FA208EFF0A0068007E /* WFWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A180F9208EFF0A0068007E /* WFWKWebView.m */; };
+		39A18102208F08880068007E /* WFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A18101208F08880068007E /* WFFileManager.m */; };
+		39A18107208F167A0068007E /* WFFilePreviewDemoVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A18106208F167A0068007E /* WFFilePreviewDemoVc.m */; };
+		39A18109208F1F880068007E /* 123.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 39A18108208F1F880068007E /* 123.xlsx */; };
 		933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061A3204E7F0100FEB7C3 /* AppDelegate.m */; };
 		933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933061AD204E7F0100FEB7C3 /* LaunchScreen.storyboard */; };
 		933061B2204E7F0100FEB7C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 933061B1204E7F0100FEB7C3 /* main.m */; };
@@ -47,6 +52,15 @@
 		2415B863963F5E29F9CDD1EF /* libPods-WFCProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		252A38B8B73BF6284AEF789B /* libPods-WFCProject-WFCProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject-WFCProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		329840AF234BC8F71B6B72ED /* libPods-WFCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WFCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39A180F1208EF8E40068007E /* WF_WKWeb_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WF_WKWeb_ViewController.h; sourceTree = "<group>"; };
+		39A180F2208EF8E40068007E /* WF_WKWeb_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WF_WKWeb_ViewController.m; sourceTree = "<group>"; };
+		39A180F8208EFF0A0068007E /* WFWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFWKWebView.h; sourceTree = "<group>"; };
+		39A180F9208EFF0A0068007E /* WFWKWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFWKWebView.m; sourceTree = "<group>"; };
+		39A18100208F08880068007E /* WFFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFFileManager.h; sourceTree = "<group>"; };
+		39A18101208F08880068007E /* WFFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFFileManager.m; sourceTree = "<group>"; };
+		39A18105208F167A0068007E /* WFFilePreviewDemoVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFFilePreviewDemoVc.h; sourceTree = "<group>"; };
+		39A18106208F167A0068007E /* WFFilePreviewDemoVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFFilePreviewDemoVc.m; sourceTree = "<group>"; };
+		39A18108208F1F880068007E /* 123.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 123.xlsx; sourceTree = "<group>"; };
 		54DF323623C64091E262B4D5 /* Pods-WFCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject/Pods-WFCProject.release.xcconfig"; sourceTree = "<group>"; };
 		55844131171B292F7AEF906D /* Pods-WFCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProject/Pods-WFCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5E0C17881D4567505044377F /* Pods-WFCProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFCProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFCProjectUITests/Pods-WFCProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +132,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39A180F0208EE1140068007E /* WF_WKWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39A180F8208EFF0A0068007E /* WFWKWebView.h */,
+				39A180F9208EFF0A0068007E /* WFWKWebView.m */,
+				39A180F1208EF8E40068007E /* WF_WKWeb_ViewController.h */,
+				39A180F2208EF8E40068007E /* WF_WKWeb_ViewController.m */,
+				39A18100208F08880068007E /* WFFileManager.h */,
+				39A18101208F08880068007E /* WFFileManager.m */,
+			);
+			path = WF_WKWebViewController;
+			sourceTree = "<group>";
+		};
+		39A180FB208EFFD80068007E /* WFWKWebViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				39A18108208F1F880068007E /* 123.xlsx */,
+				39A18105208F167A0068007E /* WFFilePreviewDemoVc.h */,
+				39A18106208F167A0068007E /* WFFilePreviewDemoVc.m */,
+			);
+			path = WFWKWebViewDemo;
+			sourceTree = "<group>";
+		};
 		93306196204E7F0100FEB7C3 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +219,7 @@
 		93610A912052350600FC182A /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				39A180FB208EFFD80068007E /* WFWKWebViewDemo */,
 				93C14FD32060ED76005A42CC /* WFBMKLocationDemo */,
 				93610A922052350B00FC182A /* WFDraggabbleDemo */,
 			);
@@ -266,6 +304,7 @@
 		93D05D72205A1D3C007CFEE7 /* WFThiredHelp */ = {
 			isa = PBXGroup;
 			children = (
+				39A180F0208EE1140068007E /* WF_WKWebViewController */,
 				93D05D73205A1D3C007CFEE7 /* WF_BMK_LocationHelp */,
 			);
 			path = WFThiredHelp;
@@ -422,6 +461,7 @@
 			files = (
 				933061AF204E7F0100FEB7C3 /* LaunchScreen.storyboard in Resources */,
 				93C14FC2205F5160005A42CC /* Assets.xcassets in Resources */,
+				39A18109208F1F880068007E /* 123.xlsx in Resources */,
 				93C14FDA2060EDC7005A42CC /* point.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,12 +537,16 @@
 			files = (
 				93610A9C2052360400FC182A /* WFDraggableDemoVc.m in Sources */,
 				93610A9F205255A400FC182A /* WF_BaseNavigationController.m in Sources */,
+				39A180F3208EF8E40068007E /* WF_WKWeb_ViewController.m in Sources */,
+				39A180FA208EFF0A0068007E /* WFWKWebView.m in Sources */,
 				93610AA220525B2B00FC182A /* WFDemoListVc.m in Sources */,
 				93610A99205235E000FC182A /* WF_BaseViewController.m in Sources */,
 				93C14FCA205F8928005A42CC /* WFBMKLocationManager.m in Sources */,
+				39A18107208F167A0068007E /* WFFilePreviewDemoVc.m in Sources */,
 				933061B2204E7F0100FEB7C3 /* main.m in Sources */,
 				93C14FDB2060EDC7005A42CC /* LocationModel.m in Sources */,
 				93C14FC6205F5946005A42CC /* WFBackgroundTaskManager.m in Sources */,
+				39A18102208F08880068007E /* WFFileManager.m in Sources */,
 				93C14FDC2060EDC7005A42CC /* WFBMKTrailVc.m in Sources */,
 				933061A4204E7F0100FEB7C3 /* AppDelegate.m in Sources */,
 				93D05D71205A0E8C007CFEE7 /* UIView+WFDraggable.m in Sources */,

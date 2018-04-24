@@ -10,7 +10,6 @@
 
 #import "LocationModel.h"
 #import "WF_BMK_LocationHelp.h"
-#import "YZLocationManager.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//基础地图

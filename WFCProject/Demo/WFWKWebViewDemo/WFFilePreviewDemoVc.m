@@ -1,17 +1,18 @@
 //
-//  WFDemoListVc.m
+//  WFFilePreviewDemoVc.m
 //  WFCProject
 //
-//  Created by wufer on 2018/3/9.
+//  Created by PRD_01 on 2018/4/24.
 //  Copyright © 2018年 wufer. All rights reserved.
 //
 
-#import "WFDemoListVc.h"
-#import "WFDraggableDemoVc.h"
-#import "WFBMKTrailVc.h"
 #import "WFFilePreviewDemoVc.h"
 
-@interface WFDemoListVc ()<UITableViewDelegate,UITableViewDataSource>
+#import "WF_WKWeb_ViewController.h"
+
+#import "WFFileManager.h"
+
+@interface WFFilePreviewDemoVc ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableV;
 
@@ -19,18 +20,15 @@
 
 @end
 
-@implementation WFDemoListVc
+@implementation WFFilePreviewDemoVc
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"List";
-    [self.datascorceArr addObject:@"WFDraggableDemoVc"];
-    [self.datascorceArr addObject:@"WFBMKTrailVc"];
-    [self.datascorceArr addObject:@"WFFilePreviewDemoVc"];
     [self.view addSubview:self.tableV];
+    
+    // Do any additional setup after loading the view.
 }
 
-#pragma mark lazyLoard
 -(UITableView *)tableV{
     if (!_tableV) {
         _tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -42,21 +40,21 @@
 
 -(NSMutableArray *)datascorceArr{
     if (!_datascorceArr) {
-        _datascorceArr = [[NSMutableArray alloc]init];
+        _datascorceArr = [[NSMutableArray alloc]initWithArray:@[@"工程文件"]];
     }
     return _datascorceArr;
 }
 
 #pragma mark tableDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
- WF_BaseViewController *vc = [[NSClassFromString(self.datascorceArr[indexPath.row]) alloc] init];
-    vc.title = [NSString stringWithFormat:@"【%ld】%@",indexPath.row,self.datascorceArr[indexPath.row]];
-    if ([vc.class isEqual:@"WF_WKWeb_ViewController"]) {
-        
+    if ([self.datascorceArr[indexPath.row] isEqualToString:@"工程文件"]) {
+        NSString *fileName = @"4439169423";
+        WF_WKWeb_ViewController *vc = [[WF_WKWeb_ViewController alloc]initWitLocalhUrl:[WFFileManager getFilePathWithName:fileName type:WFFileType_pdf]];
+        vc.navigationItem.title = fileName;
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
+
 #pragma mark tableDatasource
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44.0f;
@@ -74,8 +72,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"【%ld】%@",indexPath.row,self.datascorceArr[indexPath.row]];
     return cell;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
