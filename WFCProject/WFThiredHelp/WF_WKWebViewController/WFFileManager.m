@@ -34,8 +34,8 @@
             break;
     }
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:typeStr];
-     NSURL *baseURL = [NSURL fileURLWithPath:path];
-    if (path.length) {
+    if(path.length) {
+        NSURL *baseURL = [NSURL fileURLWithPath:path];
         return baseURL;
     }else{
         return nil;

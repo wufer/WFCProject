@@ -22,8 +22,13 @@
 
 -(instancetype)initWitLocalhUrl:(NSURL *)url{
     if (self = [super init]) {
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        if(url){
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [self.webView loadRequest:request];
+        }else{
+            NSLog(@"空url");
+        }
+      
     }
     return self;
 }
