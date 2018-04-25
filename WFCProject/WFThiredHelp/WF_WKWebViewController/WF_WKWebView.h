@@ -10,6 +10,6 @@
 
 
 
-@interface WFWKWebView : WKWebView
+@interface WF_WKWebView : WKWebView
 
 @end

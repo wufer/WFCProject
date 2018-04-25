@@ -6,9 +6,9 @@
 //  Copyright © 2018年 wufer. All rights reserved.
 //
 
-#import "WFWKWebView.h"
+#import "WF_WKWebView.h"
 
-@implementation WFWKWebView
+@implementation WF_WKWebView
 
 /*
 // Only override drawRect: if you perform custom drawing.

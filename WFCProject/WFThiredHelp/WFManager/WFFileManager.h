@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger,WFFileType){
-    WFFileType_xlsx,
-    WFFileType_pdf
-};
-
 @interface WFFileManager : NSObject
 
-+(NSURL *)getFilePathWithName:(NSString *)fileName type:(WFFileType)type;
+
+/**
+ 获取本地文件URL
+
+ @param fileName 文件名
+ @param type 文件类型
+ @return 本地文件URL 文件未发现返回nil
+ */
++(NSURL *)getFilePathWithName:(NSString *)fileName type:(NSString *)type;
 
 @end

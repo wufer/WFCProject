@@ -21,19 +21,8 @@
     return manager;
 }
 
-+(NSURL *)getFilePathWithName:(NSString *)fileName type:(WFFileType)type{
-    NSString *typeStr = nil;
-    switch (type) {
-        case WFFileType_xlsx:
-            typeStr = @"xlsx";
-            break;
-        case WFFileType_pdf:
-            typeStr = @"pdf";
-            break;
-        default:
-            break;
-    }
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:typeStr];
++(NSURL *)getFilePathWithName:(NSString *)fileName type:(NSString *)type{
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
     if(path.length) {
         NSURL *baseURL = [NSURL fileURLWithPath:path];
         return baseURL;

@@ -49,7 +49,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.datascorceArr[indexPath.row] isEqualToString:@"工程文件"]) {
         NSString *fileName = @"123";
-        WF_WKWeb_ViewController *vc = [[WF_WKWeb_ViewController alloc]initWitLocalhUrl:[WFFileManager getFilePathWithName:fileName type:WFFileType_xlsx]];
+        WF_WKWeb_ViewController *vc = [[WF_WKWeb_ViewController alloc]initWitLocalhUrl:[WFFileManager getFilePathWithName:fileName type:@"xlsx"]];
         vc.navigationItem.title = fileName;
         [self.navigationController pushViewController:vc animated:YES];
     }

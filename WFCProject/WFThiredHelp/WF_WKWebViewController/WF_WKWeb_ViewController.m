@@ -10,11 +10,11 @@
 
 #import <WebKit/WebKit.h>
 
-#import "WFWKWebView.h"
+#import "WF_WKWebView.h"
 
 @interface WF_WKWeb_ViewController ()<WKUIDelegate,WKNavigationDelegate>
 
-@property (nonatomic,strong) WFWKWebView *webView;
+@property (nonatomic,strong) WF_WKWebView *webView;
 
 @end
 
@@ -39,9 +39,9 @@
 }
 
 #pragma mark lazyLoard
--(WFWKWebView *)webView{
+-(WF_WKWebView *)webView{
     if (!_webView) {
-        _webView = [[WFWKWebView alloc]init];
+        _webView = [[WF_WKWebView alloc]init];
         [_webView setFrame:self.view.frame];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
